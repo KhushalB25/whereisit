@@ -8,7 +8,7 @@ export async function DELETE(request: NextRequest, { params }: { params: Promise
     const user = await requireUser(request);
     const { shareId } = await params;
 
-    const shareRef = adminDb.collection("shares").doc(shareId);
+    const shareRef = adminDb().collection("shares").doc(shareId);
     const snap = await shareRef.get();
 
     if (!snap.exists) {

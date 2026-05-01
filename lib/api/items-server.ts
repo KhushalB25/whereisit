@@ -82,7 +82,7 @@ export function itemPayload(values: ItemInput) {
 }
 
 export async function assertOwnsItem(userId: string, itemId: string) {
-  const ref = adminDb.collection("items").doc(itemId);
+  const ref = adminDb().collection("items").doc(itemId);
   const snap = await ref.get();
   if (!snap.exists) throw new ApiError("Item not found.", 404);
   if (snap.data()?.userId !== userId) throw new ApiError("You do not have access to this item.", 403);
@@ -94,7 +94,7 @@ export async function uploadPhoto(userId: string, itemId: string, file: File | n
   if (!file.type.startsWith("image/")) throw new ApiError("Photo must be an image.", 400);
   if (file.size > 10 * 1024 * 1024) throw new ApiError("Photo must be under 10 MB.", 400);
 
-  const bucket = adminStorage.bucket();
+  const bucket = adminStorage().bucket();
   const path = `users/${userId}/items/${itemId}/photo`;
   const buffer = Buffer.from(await file.arrayBuffer());
   const destination = bucket.file(path);
@@ -113,7 +113,7 @@ export async function uploadPhoto(userId: string, itemId: string, file: File | n
 }
 
 export async function listItems(userId: string) {
-  const snapshot = await adminDb.collection("items").where("userId", "==", userId).get();
+  const snapshot = await adminDb().collection("items").where("userId", "==", userId).get();
   return snapshot.docs
     .map((doc) => serializeDoc(doc.id, doc.data()))
     .sort((a, b) => ((b.createdAt as { millis?: number } | null)?.millis ?? 0) - ((a.createdAt as { millis?: number } | null)?.millis ?? 0));
@@ -121,7 +121,7 @@ export async function listItems(userId: string) {
 
 export async function createItem(userId: string, formData: FormData) {
   const input = parseItemInput(formData);
-  const itemRef = adminDb.collection("items").doc();
+  const itemRef = adminDb().collection("items").doc();
   const file = formData.get("photo");
   let photoURL: string | null = null;
   const isWishlist = input.itemType === "wishlist";
@@ -172,10 +172,10 @@ export async function updateItem(userId: string, itemId: string, formData: FormD
 export async function deleteItem(userId: string, itemId: string) {
   const { ref } = await assertOwnsItem(userId, itemId);
   const logs = await ref.collection("consumptionLogs").get();
-  const batch = adminDb.batch();
+  const batch = adminDb().batch();
   logs.docs.forEach((doc) => batch.delete(doc.ref));
   batch.delete(ref);
   await batch.commit();
 
-  await adminStorage.bucket().file(`users/${userId}/items/${itemId}/photo`).delete({ ignoreNotFound: true });
+  await adminStorage().bucket().file(`users/${userId}/items/${itemId}/photo`).delete({ ignoreNotFound: true });
 }

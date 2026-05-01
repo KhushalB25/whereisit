@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
 
     await assertOwnsItem(user.uid, itemId);
 
-    const shareRef = adminDb.collection("shares").doc();
+    const shareRef = adminDb().collection("shares").doc();
     await shareRef.set({
       itemId,
       ownerId: user.uid,
@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
 
     await assertOwnsItem(user.uid, itemId);
 
-    const snapshot = await adminDb
+    const snapshot = await adminDb()
       .collection("shares")
       .where("itemId", "==", itemId)
       .get();

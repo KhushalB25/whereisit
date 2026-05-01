@@ -14,7 +14,7 @@ function assertPin(pin: unknown) {
 export async function GET(request: NextRequest) {
   try {
     const user = await requireUser(request);
-    const snap = await adminDb.collection("users").doc(user.uid).get();
+    const snap = await adminDb().collection("users").doc(user.uid).get();
     return Response.json({ hasPin: Boolean(snap.data()?.pinHash) });
   } catch (error) {
     return apiError(error);
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     const pin = assertPin(body.pin);
     const pinHash = await bcrypt.hash(pin, 10);
 
-    await adminDb.collection("users").doc(user.uid).set(
+    await adminDb().collection("users").doc(user.uid).set(
       {
         pinHash,
         pinUpdatedAt: FieldValue.serverTimestamp()
@@ -46,7 +46,7 @@ export async function PUT(request: NextRequest) {
   try {
     const user = await requireUser(request);
     const body = (await request.json()) as { pin?: string; oldPin?: string; newPin?: string };
-    const snap = await adminDb.collection("users").doc(user.uid).get();
+    const snap = await adminDb().collection("users").doc(user.uid).get();
     const hash = snap.data()?.pinHash;
     if (!hash) throw new ApiError("PIN is not set.", 400);
 
@@ -55,7 +55,7 @@ export async function PUT(request: NextRequest) {
       const newPin = assertPin(body.newPin);
       const verified = await bcrypt.compare(oldPin, hash);
       if (!verified) throw new ApiError("Old PIN is incorrect.", 401);
-      await adminDb.collection("users").doc(user.uid).set(
+      await adminDb().collection("users").doc(user.uid).set(
         {
           pinHash: await bcrypt.hash(newPin, 10),
           pinUpdatedAt: FieldValue.serverTimestamp()
@@ -79,7 +79,7 @@ export async function DELETE(request: NextRequest) {
     const user = await requireUser(request);
     const authAgeSeconds = Math.floor(Date.now() / 1000) - Number(user.auth_time || 0);
     if (authAgeSeconds > 300) throw new ApiError("Please log out and log in again before resetting your PIN.", 401);
-    await adminDb.collection("users").doc(user.uid).set(
+    await adminDb().collection("users").doc(user.uid).set(
       {
         pinHash: FieldValue.delete(),
         pinUpdatedAt: FieldValue.serverTimestamp()
