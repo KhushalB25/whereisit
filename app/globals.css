@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(216, 162, 94, 0.12), transparent 34rem),
+    linear-gradient(180deg, #111311 0%, #171711 100%);
+  color: #F5F0E8;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(216, 162, 94, 0.38);
+}
+
+@layer components {
+  .field-label {
+    @apply text-sm font-medium text-warm-cream;
+  }
+
+  .input-shell {
+    @apply w-full rounded-xl border border-warm-border bg-warm-bg/70 px-4 py-3 text-warm-cream outline-none transition placeholder:text-warm-greige/60 focus:border-warm-copper focus:ring-2 focus:ring-warm-copper/20;
+  }
+
+  .panel {
+    @apply rounded-xl border border-warm-border bg-warm-card/85 shadow-glow backdrop-blur;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #332E22 transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #332E22;
+    border-radius: 3px;
+  }
+}
+
+*:focus-visible {
+  outline: 2px solid #D8A25E;
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #D8A25E;
+  outline-offset: 2px;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-7px);
+  }
+  75% {
+    transform: translateX(7px);
+  }
+}
+
+@layer base {
+  .skip-link {
+    @apply fixed left-4 top-4 z-[100] -translate-y-full rounded-xl bg-warm-copper px-4 py-3 text-sm font-semibold text-warm-bg opacity-0 shadow-lg transition-all focus-visible:translate-y-0 focus-visible:opacity-100;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

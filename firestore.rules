@@ -1,0 +1,35 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function ownsResource() {
+      return signedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    function ownsIncoming() {
+      return signedIn() && request.resource.data.userId == request.auth.uid;
+    }
+
+    match /users/{userId} {
+      allow read, create, update: if signedIn() && request.auth.uid == userId;
+      allow delete: if false;
+    }
+
+    match /items/{itemId} {
+      // Includes encrypted private fields; only the owning user can read or write the document.
+      allow read, delete: if ownsResource();
+      allow create: if ownsIncoming();
+      allow update: if ownsResource() && ownsIncoming();
+
+      match /consumptionLogs/{logId} {
+        allow read, create, delete: if signedIn()
+          && get(/databases/$(database)/documents/items/$(itemId)).data.userId == request.auth.uid;
+        allow update: if false;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dark rounded background -->
+  <rect width="64" height="64" rx="14" fill="#1A1C18"/>
+
+  <!-- Magnifying glass ring (thicker = 4px, cleaner) -->
+  <circle cx="26" cy="24" r="14" fill="none" stroke="#E8B84B" stroke-width="4"/>
+
+  <!-- Handle (proper 45° angle, thick) -->
+  <line x1="36" y1="34" x2="50" y2="48" stroke="#E8B84B" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Accent dot inside lens — represents "item found" -->
+  <circle cx="26" cy="24" r="5" fill="#4A9E8E" stroke="none"/>
+
+  <!-- Reflection highlight (gives glass质感) -->
+  <path d="M20 18 A10 10 0 0 1 25 16" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+</svg>

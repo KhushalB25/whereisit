@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dark rounded background -->
+  <rect width="64" height="64" rx="14" fill="#1A1C18"/>
+
+  <!-- Box body (open-top cardboard box) -->
+  <rect x="14" y="22" width="36" height="28" rx="2" fill="none" stroke="#E8B84B" stroke-width="3"/>
+
+  <!-- Box front flap -->
+  <path d="M14 22 L20 16 L44 16 L50 22" fill="none" stroke="#E8B84B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Tag hanging from box (with hole) -->
+  <rect x="39" y="30" width="12" height="14" rx="2" fill="#4A9E8E"/>
+  <circle cx="45" cy="34" r="1.5" fill="#1A1C18"/>
+  <line x1="45" y1="30" x2="45" y2="27" stroke="#4A9E8E" stroke-width="2"/>
+</svg>

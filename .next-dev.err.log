@@ -1,0 +1,515 @@
+⚠ Fast Refresh had to perform a full reload when ./components/auth/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/auth/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/auth/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/auth/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/auth/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/auth/AuthProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/ui/Toast.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/ui/Toast.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/ui/Toast.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/ui/Toast.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⨯ ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  [90m162 |[0m     </div>
+  [90m163 |[0m   );
+[31m[1m>[0m [90m164 |[0m }
+  [90m    |[0m [31m[1m^[0m
+  [90m165 |[0m
+  [90m166 |[0m [36mfunction[0m [33mSummaryCard[0m({
+  [90m167 |[0m   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx
+
+
+⨯ ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  [90m162 |[0m     </div>
+  [90m163 |[0m   );
+[31m[1m>[0m [90m164 |[0m }
+  [90m    |[0m [31m[1m^[0m
+  [90m165 |[0m
+  [90m166 |[0m [36mfunction[0m [33mSummaryCard[0m({
+  [90m167 |[0m   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx
+
+
+⨯ ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  [90m162 |[0m     </div>
+  [90m163 |[0m   );
+[31m[1m>[0m [90m164 |[0m }
+  [90m    |[0m [31m[1m^[0m
+  [90m165 |[0m
+  [90m166 |[0m [36mfunction[0m [33mSummaryCard[0m({
+  [90m167 |[0m   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx
+
+
+⨯ ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  [90m162 |[0m     </div>
+  [90m163 |[0m   );
+[31m[1m>[0m [90m164 |[0m }
+  [90m    |[0m [31m[1m^[0m
+  [90m165 |[0m
+  [90m166 |[0m [36mfunction[0m [33mSummaryCard[0m({
+  [90m167 |[0m   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx
+
+
+⨯ ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  [90m162 |[0m     </div>
+  [90m163 |[0m   );
+[31m[1m>[0m [90m164 |[0m }
+  [90m    |[0m [31m[1m^[0m
+  [90m165 |[0m
+  [90m166 |[0m [36mfunction[0m [33mSummaryCard[0m({
+  [90m167 |[0m   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx
+
+
+⨯ ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  [90m162 |[0m     </div>
+  [90m163 |[0m   );
+[31m[1m>[0m [90m164 |[0m }
+  [90m    |[0m [31m[1m^[0m
+  [90m165 |[0m
+  [90m166 |[0m [36mfunction[0m [33mSummaryCard[0m({
+  [90m167 |[0m   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx
+
+
+⨯ ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  [90m162 |[0m     </div>
+  [90m163 |[0m   );
+[31m[1m>[0m [90m164 |[0m }
+  [90m    |[0m [31m[1m^[0m
+  [90m165 |[0m
+  [90m166 |[0m [36mfunction[0m [33mSummaryCard[0m({
+  [90m167 |[0m   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx
+
+
+⨯ ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  [90m162 |[0m     </div>
+  [90m163 |[0m   );
+[31m[1m>[0m [90m164 |[0m }
+  [90m    |[0m [31m[1m^[0m
+  [90m165 |[0m
+  [90m166 |[0m [36mfunction[0m [33mSummaryCard[0m({
+  [90m167 |[0m   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx
+
+
+[browser] Uncaught Error: ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  162 |     </div>
+  163 |   );
+> 164 | }
+      | ^
+  165 |
+  166 | function SummaryCard({
+  167 |   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx
+
+
+    at <unknown> (Error: ./components/dashboard/DashboardClient.tsx:164:1)
+    at <unknown> (Error: (./components/dashboard/DashboardClient.tsx:164:1)
+[browser] Uncaught Error: ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  162 |     </div>
+  163 |   );
+> 164 | }
+      | ^
+  165 |
+  166 | function SummaryCard({
+  167 |   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx
+
+
+    at <unknown> (Error: ./components/dashboard/DashboardClient.tsx:164:1)
+    at <unknown> (Error: (./components/dashboard/DashboardClient.tsx:164:1)
+[browser] ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  162 |     </div>
+  163 |   );
+> 164 | }
+      | ^
+  165 |
+  166 | function SummaryCard({
+  167 |   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx 
+    at handleErrors (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  162 |     </div>
+  163 |   );
+> 164 | }
+      | ^
+  165 |
+  166 | function SummaryCard({
+  167 |   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx 
+    at handleErrors (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  162 |     </div>
+  163 |   );
+> 164 | }
+      | ^
+  165 |
+  166 | function SummaryCard({
+  167 |   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx 
+    at handleErrors (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./components/dashboard/DashboardClient.tsx:164:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  162 |     </div>
+  163 |   );
+> 164 | }
+      | ^
+  165 |
+  166 | function SummaryCard({
+  167 |   icon,
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/dashboard/DashboardClient.tsx
+    ./app/(app)/dashboard/page.tsx 
+    at handleErrors (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] Uncaught Error: ./components/find/FindClient.tsx:34:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  32 |     </div>
+  33 |   );
+> 34 | }
+     | ^
+  35 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/find/FindClient.tsx
+    ./app/(app)/find/page.tsx
+
+
+    at <unknown> (Error: ./components/find/FindClient.tsx:34:1)
+    at <unknown> (Error: (./components/find/FindClient.tsx:34:1)
+[browser] Uncaught Error: ./components/find/FindClient.tsx:34:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  32 |     </div>
+  33 |   );
+> 34 | }
+     | ^
+  35 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/find/FindClient.tsx
+    ./app/(app)/find/page.tsx
+
+
+    at <unknown> (Error: ./components/find/FindClient.tsx:34:1)
+    at <unknown> (Error: (./components/find/FindClient.tsx:34:1)
+[browser] Uncaught Error: ./components/vault/PrivateVaultClient.tsx:94:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  92 |     </div>
+  93 |   );
+> 94 | }
+     | ^
+  95 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/vault/PrivateVaultClient.tsx
+    ./app/(app)/vault/page.tsx
+
+
+    at <unknown> (Error: ./components/vault/PrivateVaultClient.tsx:94:1)
+    at <unknown> (Error: (./components/vault/PrivateVaultClient.tsx:94:1)
+[browser] Uncaught Error: ./components/vault/PrivateVaultClient.tsx:94:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  92 |     </div>
+  93 |   );
+> 94 | }
+     | ^
+  95 |
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/vault/PrivateVaultClient.tsx
+    ./app/(app)/vault/page.tsx
+
+
+    at <unknown> (Error: ./components/vault/PrivateVaultClient.tsx:94:1)
+    at <unknown> (Error: (./components/vault/PrivateVaultClient.tsx:94:1)
+[browser] Uncaught Error: ./components/profile/ProfileClient.tsx:174:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  172 |     </div>
+  173 |   );
+> 174 | }
+      | ^
+  175 |
+  176 | function Stat({ label, value, includeVault, onToggleVault }: { label: string; value: numb...
+  177 |   return (
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/profile/ProfileClient.tsx
+    ./app/(app)/profile/page.tsx
+
+
+    at <unknown> (Error: ./components/profile/ProfileClient.tsx:174:1)
+    at <unknown> (Error: (./components/profile/ProfileClient.tsx:174:1)
+[browser] Uncaught Error: ./components/profile/ProfileClient.tsx:174:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  172 |     </div>
+  173 |   );
+> 174 | }
+      | ^
+  175 |
+  176 | function Stat({ label, value, includeVault, onToggleVault }: { label: string; value: numb...
+  177 |   return (
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/profile/ProfileClient.tsx
+    ./app/(app)/profile/page.tsx
+
+
+    at <unknown> (Error: ./components/profile/ProfileClient.tsx:174:1)
+    at <unknown> (Error: (./components/profile/ProfileClient.tsx:174:1)
+⚠ Fast Refresh had to perform a full reload when ./components/ui/Toast.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/ui/Toast.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload when ./components/ui/Toast.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/ui/Toast.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/ui/Toast.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/ui/Toast.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[browser] ./components/items/ItemDetailClient.tsx:313:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  311 |     </div>
+  312 |   );
+> 313 | }
+      | ^
+  314 |
+  315 | function InfoPanel({ label, value }: { label: string; value: string }) {
+  316 |   return (
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/items/ItemDetailClient.tsx
+    ./app/(app)/items/[id]/page.tsx 
+    at handleErrors (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+    at processMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13891:21)
+    at WebSocket.handleMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13335:52) (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+[browser] ./components/items/ItemDetailClient.tsx:313:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  311 |     </div>
+  312 |   );
+> 313 | }
+      | ^
+  314 |
+  315 | function InfoPanel({ label, value }: { label: string; value: string }) {
+  316 |   return (
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/items/ItemDetailClient.tsx
+    ./app/(app)/items/[id]/page.tsx 
+    at handleErrors (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+    at processMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13891:21)
+    at WebSocket.handleMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13335:52) (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+[browser] ./components/items/ItemDetailClient.tsx:313:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  311 |     </div>
+  312 |   );
+> 313 | }
+      | ^
+  314 |
+  315 | function InfoPanel({ label, value }: { label: string; value: string }) {
+  316 |   return (
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/items/ItemDetailClient.tsx
+    ./app/(app)/items/[id]/page.tsx 
+    at handleErrors (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+    at processMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13891:21)
+    at WebSocket.handleMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13335:52) (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+[browser] ./components/items/ItemDetailClient.tsx:313:1
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+  311 |     </div>
+  312 |   );
+> 313 | }
+      | ^
+  314 |
+  315 | function InfoPanel({ label, value }: { label: string; value: string }) {
+  316 |   return (
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./components/items/ItemDetailClient.tsx
+    ./app/(app)/items/[id]/page.tsx 
+    at handleErrors (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+    at processMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13891:21)
+    at WebSocket.handleMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13335:52) (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13828:21)
+⚠ Fast Refresh had to perform a full reload when ./components/security/PrivateVaultProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/security/PrivateVaultProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[browser] Failed to fetch RSC payload for http://127.0.0.1:3000/dashboard. Falling back to browser navigation. TypeError: Failed to fetch
+    at createFetch (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:8084:21)
+    at fetchServerResponse (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:7928:27)
+    at fetchMissingDynamicData (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:9341:75)
+    at spawnDynamicRequests (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:9149:35)
+    at navigateToKnownRoute (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:10033:54)
+    at refreshDynamicData (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:10653:49)
+    at hmrRefreshReducer (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:10802:51)
+    at clientReducer (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11398:65)
+    at Object.action (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11631:55)
+    at runAction (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11536:38)
+    at dispatchAction (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11599:9)
+    at Object.dispatch (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11629:40)
+    at <unknown> (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:963:29)
+    at startTransition (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_compiled_react-dom_058-ah~._.js:5469:31)
+    at nextDispatch (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:962:13)
+    at dispatchAppRouterAction (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:922:5)
+    at <unknown> (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11800:61)
+    at startTransition (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:1279:31)
+    at Object.hmrRefresh (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:11799:40)
+    at <unknown> (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13967:64)
+    at startTransition (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_compiled_0rpq4pf._.js:1279:31)
+    at processMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13966:44)
+    at WebSocket.handleMessage (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:13335:52) (file://C:/Users/DELL/Documents/New project/.next/dev/static/chunks/node_modules_next_dist_client_0fhqo1d._.js:8005:21)
+[api-error] Please log out and log in again before resetting your PIN.
+[api-error] Please log out and log in again before resetting your PIN.
+⚠ Fast Refresh had to perform a full reload when ./components/security/PrivateVaultProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/security/PrivateVaultProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[api-error] Please log out and log in again before resetting your PIN.
+⚠ Fast Refresh had to perform a full reload when ./components/security/PrivateVaultProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/security/PrivateVaultProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/security/PrivateVaultProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload when ./components/security/PrivateVaultProvider.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
