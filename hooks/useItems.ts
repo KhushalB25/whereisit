@@ -7,7 +7,7 @@ import type { InventoryItem } from "@/lib/types";
 
 const itemCache = new Map<string, InventoryItem[]>();
 const inflight = new Map<string, Promise<InventoryItem[]>>();
-
+//hello
 export function useItems() {
   const { user } = useAuth();
   const [items, setItems] = useState<InventoryItem[]>([]);
