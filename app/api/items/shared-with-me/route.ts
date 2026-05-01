@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
       return Response.json({ error: "User has no email." }, { status: 400 });
     }
 
-    const snapshot = await adminDb
+    const snapshot = await adminDb()
       .collection("shares")
       .where("sharedWithEmail", "==", userEmail)
       .get();
@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
       return Response.json({ items: [] });
     }
 
-    const itemsSnap = await adminDb
+    const itemsSnap = await adminDb()
       .collection("items")
       .where("__name__", "in", itemIds.slice(0, 30))
       .get();

@@ -18,11 +18,11 @@ export async function POST(request: NextRequest) {
       return Response.json({ error: "Maximum 500 items per import." }, { status: 400 });
     }
 
-    const batch = adminDb.batch();
+    const batch = adminDb().batch();
     const ids: string[] = [];
 
     for (const raw of items) {
-      const ref = adminDb.collection("items").doc();
+      const ref = adminDb().collection("items").doc();
       ids.push(ref.id);
 
       const isPrivate = raw.isPrivate === true || raw.isPrivate === "yes";

@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
     const threeDaysFromNow = new Date(now);
     threeDaysFromNow.setDate(threeDaysFromNow.getDate() + 3);
 
-    const snapshot = await adminDb
+    const snapshot = await adminDb()
       .collection("items")
       .where("expiryDate", ">=", new Date(now))
       .where("expiryDate", "<=", threeDaysFromNow)
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
 
     for (const userId of userIds) {
       const items = byUser.get(userId)!;
-      const userDoc = await adminDb.collection("users").doc(userId).get();
+      const userDoc = await adminDb().collection("users").doc(userId).get();
       const tokens: string[] = userDoc.data()?.fcmTokens || [];
       if (!tokens.length) continue;
 

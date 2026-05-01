@@ -7,7 +7,7 @@ export const runtime = "nodejs";
 export async function GET(request: NextRequest) {
   try {
     const user = await requireUser(request);
-    const snapshot = await adminDb
+    const snapshot = await adminDb()
       .collection("users")
       .doc(user.uid)
       .collection("shoppingList")
@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     const user = await requireUser(request);
     const body = await request.json();
 
-    const docRef = adminDb.collection("users").doc(user.uid).collection("shoppingList").doc();
+    const docRef = adminDb().collection("users").doc(user.uid).collection("shoppingList").doc();
     const data = {
       name: body.name || "Untitled",
       category: body.category || "Miscellaneous",
@@ -60,7 +60,7 @@ export async function DELETE(request: NextRequest) {
     const itemId = searchParams.get("id");
     if (!itemId) return Response.json({ error: "Missing id parameter" }, { status: 400 });
 
-    await adminDb.collection("users").doc(user.uid).collection("shoppingList").doc(itemId).delete();
+    await adminDb().collection("users").doc(user.uid).collection("shoppingList").doc(itemId).delete();
     return Response.json({ ok: true });
   } catch (error) {
     return apiError(error);

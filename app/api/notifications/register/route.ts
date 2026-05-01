@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       return Response.json({ error: "FCM token is required." }, { status: 400 });
     }
 
-    await adminDb.collection("users").doc(user.uid).update({
+    await adminDb().collection("users").doc(user.uid).update({
       fcmTokens: FieldValue.arrayUnion(token),
     });
 

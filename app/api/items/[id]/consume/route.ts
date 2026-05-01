@@ -14,7 +14,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     const amount = Number(item.dailyConsumptionRate || 0) > 0 ? Number(item.dailyConsumptionRate) : 1;
     const nextQuantity = Math.max(0, Number(item.quantity || 0) - amount);
 
-    await adminDb.runTransaction(async (transaction) => {
+    await adminDb().runTransaction(async (transaction) => {
       transaction.update(ref, {
         quantity: nextQuantity,
         status: nextQuantity <= 0 ? "finished" : item.status || "active",
