@@ -7,7 +7,8 @@ import { NextRequest } from "next/server";
 const projectId = process.env.FIREBASE_PROJECT_ID || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
 const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
 const rawPrivateKey = process.env.FIREBASE_PRIVATE_KEY;
-const privateKey = rawPrivateKey?.replace(/\\n/g, "\n");
+// Strip wrapping double-quotes that .env quoting adds, then convert literal \n to real newlines
+const privateKey = rawPrivateKey?.replace(/^"|"$/g, "").replace(/\\n/g, "\n");
 const storageBucket = process.env.FIREBASE_STORAGE_BUCKET || process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET;
 const hasExplicitCredentials = Boolean(clientEmail && privateKey && projectId);
 const hasApplicationDefaultCredentials = Boolean(process.env.GOOGLE_APPLICATION_CREDENTIALS);
