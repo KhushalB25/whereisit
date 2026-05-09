@@ -46,9 +46,9 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
               className={cn(
                 "pointer-events-auto flex items-start gap-3 rounded-xl border px-4 py-3 text-sm shadow-2xl backdrop-blur will-change-transform will-change-opacity",
                 exiting ? "animate-slide-out-right" : "animate-slide-in-right",
-                item.tone === "success" && "border-warm-sage/30 bg-warm-sage/15 text-warm-sage",
-                item.tone === "error" && "border-warm-rust/30 bg-warm-rust/15 text-warm-rust",
-                item.tone === "info" && "border-warm-border bg-warm-card/95 text-warm-cream"
+                item.tone === "success" && "border-gold/30 bg-gold-dim text-gold-light",
+                item.tone === "error" && "border-blood/30 bg-blood-muted text-red-300",
+                item.tone === "info" && "border-white/[0.08] bg-crimson-900/95 text-parchment"
               )}
             >
               <span className="flex-1">{item.message}</span>

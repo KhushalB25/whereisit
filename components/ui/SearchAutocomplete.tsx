@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -83,7 +83,7 @@ export function SearchAutocomplete() {
     return (
       <>
         {text.slice(0, index)}
-        <mark className="rounded-sm bg-warm-copper/30 text-warm-cream">{text.slice(index, index + normalized.length)}</mark>
+        <mark className="rounded-sm bg-blood/30 text-parchment">{text.slice(index, index + normalized.length)}</mark>
         {text.slice(index + normalized.length)}
       </>
     );
@@ -92,7 +92,7 @@ export function SearchAutocomplete() {
   return (
     <div className="relative">
       <form onSubmit={handleSubmit} className="relative">
-        <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-warm-greige/75" />
+        <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/30" />
         <input
           ref={inputRef}
           value={query}
@@ -122,7 +122,7 @@ export function SearchAutocomplete() {
           ref={listRef}
           id="search-results-list"
           role="listbox"
-          className="absolute left-0 right-0 top-full z-40 mt-2 overflow-hidden rounded-xl border border-warm-border bg-warm-card shadow-glow backdrop-blur"
+          className="absolute left-0 right-0 top-full z-40 mt-2 overflow-hidden rounded-xl border border-white/[0.06] bg-crimson-900 shadow-glow backdrop-blur"
         >
           {results.map((item: InventoryItem, index: number) => (
             <button
@@ -138,21 +138,21 @@ export function SearchAutocomplete() {
               }}
               className={cn(
                 "flex w-full items-center gap-3 px-4 py-3 text-left text-sm transition",
-                index === activeIndex ? "bg-warm-copper/15 text-warm-cream" : "text-warm-cream/85 hover:bg-[#24251F]"
+                index === activeIndex ? "bg-blood-muted text-parchment" : "text-parchment/85 hover:bg-white/[0.04]"
               )}
             >
-              <div className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-warm-border bg-warm-bg">
+              <div className="relative flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-white/[0.06] bg-crimson-950">
                 {item.photoURL ? (
                   <Image src={item.photoURL} alt="" fill sizes="32px" className="object-cover" />
                 ) : (
-                  <Package className="h-4 w-4 text-warm-greige/50" />
+                  <Package className="h-4 w-4 text-white/20" />
                 )}
               </div>
               <div className="min-w-0 flex-1">
                 <div className="truncate font-medium">{highlight(item.name || "Unnamed item")}</div>
-                <div className="mt-0.5 truncate text-xs text-warm-greige">{highlight(item.location || "")}</div>
+                <div className="mt-0.5 truncate text-xs text-white/40">{highlight(item.location || "")}</div>
               </div>
-              <span className="shrink-0 rounded-full bg-warm-bg px-2 py-0.5 text-[11px] text-warm-greige">
+              <span className="shrink-0 rounded-full bg-crimson-950 px-2 py-0.5 text-[11px] text-white/40">
                 Qty {item.quantity}
               </span>
             </button>
@@ -163,7 +163,7 @@ export function SearchAutocomplete() {
               event.preventDefault();
               navigate(`/find?q=${encodeURIComponent(normalized)}`);
             }}
-            className="flex items-center justify-center border-t border-warm-border px-4 py-2.5 text-xs font-medium text-warm-copper transition hover:bg-[#24251F]"
+            className="flex items-center justify-center border-t border-white/[0.06] px-4 py-2.5 text-xs font-medium text-blood transition hover:bg-white/[0.04]"
           >
             View all {results.length} results
           </Link>

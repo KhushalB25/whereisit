@@ -6,7 +6,9 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
-  updateProfile
+  updateProfile,
+  GoogleAuthProvider,
+  signInWithPopup
 } from "firebase/auth";
 import { doc, serverTimestamp, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
@@ -18,6 +20,7 @@ type AuthContextValue = {
   signUp: (name: string, email: string, password: string) => Promise<void>;
   logIn: (email: string, password: string) => Promise<void>;
   logOut: () => Promise<void>;
+  signInWithGoogle: () => Promise<void>;
 };
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -53,6 +56,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       },
       logOut() {
         return signOut(auth);
+      },
+      async signInWithGoogle() {
+        const provider = new GoogleAuthProvider();
+        const credential = await signInWithPopup(auth, provider);
+        // Create user document on first sign-in
+        if (credential.user) {
+          const userDoc = doc(db, "users", credential.user.uid);
+          await setDoc(userDoc, {
+            displayName: credential.user.displayName || "",
+            email: credential.user.email,
+            createdAt: serverTimestamp()
+          }, { merge: true });
+        }
       }
     }),
     [user, loading]

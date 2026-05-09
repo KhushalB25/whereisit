@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useSearchParams } from "next/navigation";
 import { Lock, Search } from "lucide-react";
@@ -20,24 +20,24 @@ export function FindClient() {
   const searchItems = includeVault ? allDisplayItems : displayItems;
 
   if (loading) return <LoadingState label="Preparing search" variant="skeleton" />;
-  if (error) return <div className="panel p-5 text-warm-rust">{error}</div>;
+  if (error) return <div className="panel p-5 text-blood">{error}</div>;
 
   return (
     <PageTransition>
     <div className="mx-auto max-w-3xl space-y-6">
       <div>
-        <div className="flex items-center gap-2 text-warm-copper">
+        <div className="flex items-center gap-2 text-blood">
           <Search className="h-5 w-5" />
           <span className="text-sm font-medium">Find It</span>
         </div>
-        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-warm-cream">Instant inventory search</h1>
-        <p className="mt-1 text-sm text-warm-greige">Use the search bar above. Results match item names, locations, rooms, and categories.</p>
+        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-parchment">Instant inventory search</h1>
+        <p className="mt-1 text-sm text-white/40">Use the search bar above. Results match item names, locations, rooms, and categories.</p>
       </div>
 
-      <div className="flex items-center justify-between rounded-xl border border-warm-border bg-warm-bg/50 p-3">
-        <div className="flex items-center gap-2 text-sm text-warm-greige">
-          <Lock className="h-4 w-4 text-warm-copper" />
-          <span>Vault items <span className="text-warm-greige/60">— encrypted entries requiring a PIN</span></span>
+      <div className="flex items-center justify-between rounded-xl border border-white/[0.06] bg-crimson-950/50 p-3">
+        <div className="flex items-center gap-2 text-sm text-white/40">
+          <Lock className="h-4 w-4 text-blood" />
+          <span>Vault items <span className="text-white/25">- encrypted entries requiring a PIN</span></span>
         </div>
         <VaultStatToggle showing={includeVault} onToggle={setIncludeVault} />
       </div>

@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { useToast } from "@/components/ui/Toast";
 import { cn } from "@/lib/utils";
 import { usePrivateVault } from "@/components/security/PrivateVaultProvider";
+import { SecurityQuestionsModal } from "@/components/security/SecurityQuestionsModal";
 
 type PinModalProps = {
   open: boolean;
@@ -18,12 +19,13 @@ type PinModalProps = {
 const DIGITS = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModalProps) {
-  const { verifyPin, setupPin, resetPin } = usePrivateVault();
+  const { verifyPin, setupPin, hasSecurityQuestions } = usePrivateVault();
   const { toast } = useToast();
   const [pin, setPin] = useState("");
   const [loading, setLoading] = useState(false);
   const [shake, setShake] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [questionsOpen, setQuestionsOpen] = useState(false);
   const okRef = useRef<HTMLButtonElement>(null);
   const pinLength = pin.length;
 
@@ -82,12 +84,10 @@ export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModal
   }
 
   async function forgotPin() {
-    try {
-      await resetPin();
-      toast("PIN reset. Create a new PIN to unlock private items.", "success");
-      onClose();
-    } catch (error) {
-      toast(error instanceof Error ? error.message : "Please re-login before resetting your PIN.", "error");
+    if (hasSecurityQuestions) {
+      setQuestionsOpen(true);
+    } else {
+      toast("Set up security questions in your profile to enable PIN recovery.", "error");
     }
   }
 
@@ -101,7 +101,7 @@ export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModal
       )}
       onClick={onClose}
       onKeyDown={handleKeyDown}
-      // Portal lives at document.body — no parent with transform/will-change can clip this
+      // Portal lives at document.body - no parent with transform/will-change can clip this
     >
       <div
         role="dialog"
@@ -116,16 +116,16 @@ export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModal
       >
         {/* Icon + heading */}
         <div className="mb-5 text-center">
-          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-warm-copper/15 text-warm-copper">
+          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-blood-muted text-blood">
             <KeyRound className="h-6 w-6" />
           </div>
-          <h2 className="text-lg font-semibold text-warm-cream">
+          <h2 className="text-lg font-semibold text-parchment">
             {mode === "setup" ? "Create private PIN" : "Enter private PIN"}
           </h2>
-          <p className="mt-1 text-sm text-warm-greige">Use a 4-digit PIN. It is never stored in plaintext.</p>
+          <p className="mt-1 text-sm text-white/40">Use a 4-digit PIN. It is never stored in plaintext.</p>
         </div>
 
-        {/* Masked PIN display: •••• */}
+        {/* Masked PIN display: **** */}
         <div className="mb-6 flex justify-center gap-3 sm:gap-4" aria-label={`PIN: ${pinLength} of 4 digits entered`} role="img">
           {[0, 1, 2, 3].map((index) => {
             const filled = pin.length > index;
@@ -135,8 +135,8 @@ export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModal
                 className={cn(
                   "flex h-12 w-9 items-center justify-center rounded-lg border text-lg font-medium transition-all duration-150 sm:h-14 sm:w-10",
                   filled
-                    ? "border-warm-copper/60 bg-warm-copper/15 text-warm-copper"
-                    : "border-warm-border bg-warm-bg/50 text-warm-greige/30"
+                    ? "border-blood/60 bg-blood-muted text-blood"
+                    : "border-white/[0.06] bg-crimson-950/50 text-white/40/30"
                 )}
               >
                 {filled ? "•" : "–"}
@@ -145,14 +145,14 @@ export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModal
           })}
         </div>
 
-        {/* Numeric keypad — 3-column grid, responsive gap */}
+        {/* Numeric keypad - 3-column grid, responsive gap */}
         <div className="grid grid-cols-3 gap-2.5 sm:gap-3" role="group" aria-label="Numeric keypad">
           {DIGITS.map((digit) => (
             <button
               key={digit}
               type="button"
               onClick={() => press(digit)}
-              className="flex h-12 items-center justify-center rounded-xl bg-[#24251F] text-lg font-semibold text-warm-cream transition-all duration-100 active:scale-95 hover:bg-warm-border sm:h-14 sm:text-xl"
+              className="flex h-12 items-center justify-center rounded-xl bg-white/[0.04] text-lg font-semibold text-parchment transition-all duration-100 active:scale-95 hover:bg-white/[0.06] sm:h-14 sm:text-xl"
               tabIndex={-1}
             >
               {digit}
@@ -161,7 +161,7 @@ export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModal
           <button
             type="button"
             onClick={() => setPin((current) => current.slice(0, -1))}
-            className="flex h-12 items-center justify-center rounded-xl bg-[#24251F] text-warm-cream transition-all duration-100 active:scale-95 hover:bg-warm-border sm:h-14"
+            className="flex h-12 items-center justify-center rounded-xl bg-white/[0.04] text-parchment transition-all duration-100 active:scale-95 hover:bg-white/[0.06] sm:h-14"
             aria-label="Delete last digit"
             tabIndex={-1}
           >
@@ -170,7 +170,7 @@ export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModal
           <button
             type="button"
             onClick={() => press("0")}
-            className="flex h-12 items-center justify-center rounded-xl bg-[#24251F] text-lg font-semibold text-warm-cream transition-all duration-100 active:scale-95 hover:bg-warm-border sm:h-14 sm:text-xl"
+            className="flex h-12 items-center justify-center rounded-xl bg-white/[0.04] text-lg font-semibold text-parchment transition-all duration-100 active:scale-95 hover:bg-white/[0.06] sm:h-14 sm:text-xl"
             tabIndex={-1}
           >
             0
@@ -196,7 +196,7 @@ export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModal
               setPin("");
               onClose();
             }}
-            className="rounded-lg px-2 py-1.5 text-warm-greige transition hover:text-warm-cream"
+            className="rounded-lg px-2 py-1.5 text-white/40 transition hover:text-parchment"
           >
             Cancel
           </button>
@@ -204,7 +204,7 @@ export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModal
             <button
               type="button"
               onClick={forgotPin}
-              className="rounded-lg px-2 py-1.5 text-warm-copper transition hover:text-[#E7B877]"
+              className="rounded-lg px-2 py-1.5 text-blood transition hover:text-blood"
             >
               Forgot PIN?
             </button>
@@ -214,5 +214,20 @@ export function PinModal({ open, mode = "verify", onClose, onSuccess }: PinModal
     </div>
   );
 
-  return createPortal(overlay, document.body);
+  return (
+    <>
+      {createPortal(overlay, document.body)}
+      {questionsOpen ? (
+        <SecurityQuestionsModal
+          open={questionsOpen}
+          mode="verify"
+          onSuccess={onSuccess}
+          onClose={() => {
+            setQuestionsOpen(false);
+            onClose();
+          }}
+        />
+      ) : null}
+    </>
+  );
 }

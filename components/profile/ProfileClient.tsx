@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { useAuth } from "@/components/auth/AuthProvider";
 import { useItems } from "@/hooks/useItems";
 import { PinModal } from "@/components/security/PinModal";
+import { SecurityQuestionsModal } from "@/components/security/SecurityQuestionsModal";
 import { usePrivateVault } from "@/components/security/PrivateVaultProvider";
 import { useMemo, useState } from "react";
 import { VaultStatToggle } from "@/components/security/VaultStatToggle";
@@ -20,7 +21,7 @@ import { useNotifications } from "@/hooks/useNotifications";
 export function ProfileClient() {
   const router = useRouter();
   const { user, logOut } = useAuth();
-  const { hasPin, pin, unlocked, lock, changePin } = usePrivateVault();
+  const { hasPin, pin, unlocked, lock, changePin, hasSecurityQuestions, securityQuestions, refreshSecurityQuestionsState } = usePrivateVault();
   const { items } = useItems();
   const [pinOpen, setPinOpen] = useState(false);
   const [editingProfile, setEditingProfile] = useState(false);
@@ -31,6 +32,7 @@ export function ProfileClient() {
   const [newPin, setNewPin] = useState("");
   const [pinMessage, setPinMessage] = useState<string | null>(null);
   const [statsIncludeVault, setStatsIncludeVault] = useState(false);
+  const [questionsOpen, setQuestionsOpen] = useState(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const [importPreview, setImportPreview] = useState<number | null>(null);
   const [importing, setImporting] = useState(false);
@@ -183,34 +185,34 @@ export function ProfileClient() {
     <PageTransition>
     <div className="mx-auto max-w-2xl space-y-6">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-warm-cream">Profile</h1>
-        <p className="mt-1 text-sm text-warm-greige">Account and inventory summary.</p>
+        <h1 className="text-2xl font-semibold tracking-tight text-parchment font-display">Profile</h1>
+        <p className="mt-1 text-sm text-white/40">Account and inventory summary.</p>
       </div>
 
       <section className="panel p-5">
         <div className="flex items-center gap-4">
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-warm-copper text-xl font-semibold text-warm-bg">
+          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-blood text-xl font-semibold text-white">
             {(user?.displayName || user?.email || "U").slice(0, 1).toUpperCase()}
           </div>
           <div className="min-w-0">
             {editingProfile ? (
               <div className="flex flex-col gap-3 sm:flex-row">
-                <input className="input-shell" value={displayName} onChange={(event) => setDisplayName(event.target.value)} />
+                <input className="input-shell" placeholder="Your display name" value={displayName} onChange={(event) => setDisplayName(event.target.value)} />
                 <Button type="button" onClick={saveProfile} loading={profileSaving}>
                   <Save className="h-4 w-4" />
                   Save
                 </Button>
               </div>
             ) : (
-              <div className="flex items-center gap-2 text-lg font-semibold text-warm-cream">
-                <UserRound className="h-5 w-5 text-warm-copper" />
-                <span className="truncate">{user?.displayName || "WhereIsIt user"}</span>
-                <button type="button" onClick={() => setEditingProfile(true)} className="rounded-lg p-1 text-warm-greige hover:bg-[#24251F] hover:text-warm-cream">
+              <div className="flex items-center gap-2 text-lg font-semibold text-parchment">
+                <UserRound className="h-5 w-5 text-blood" />
+                <span className="truncate">{user?.displayName || "User"}</span>
+                <button type="button" onClick={() => setEditingProfile(true)} className="rounded-lg p-1 text-white/40 hover:bg-white/[0.04] hover:text-parchment">
                   <Edit3 className="h-4 w-4" />
                 </button>
               </div>
             )}
-            <div className="mt-1 flex items-center gap-2 text-sm text-warm-greige">
+            <div className="mt-1 flex items-center gap-2 text-sm text-white/40">
               <Mail className="h-4 w-4" />
               <span className="truncate">{user?.email}</span>
             </div>
@@ -226,7 +228,7 @@ export function ProfileClient() {
       </section>
 
       <section className="panel p-5">
-        <h2 className="mb-3 text-lg font-semibold text-warm-cream">Data</h2>
+        <h2 className="mb-3 text-lg font-semibold text-parchment font-display">Data</h2>
         <div className="flex flex-wrap gap-3">
           <Button type="button" variant="secondary" onClick={() => setExportOpen(true)}>
             <Download className="h-4 w-4" />
@@ -239,7 +241,7 @@ export function ProfileClient() {
           <input ref={fileRef} type="file" accept=".csv" className="sr-only" onChange={handleImportFile} />
         </div>
         {importPreview ? (
-          <div className="mt-3 rounded-xl border border-warm-mustard/30 bg-warm-mustard/10 p-4 text-sm text-warm-mustard">
+          <div className="mt-3 rounded-xl border border-gold/30 bg-gold-dim p-4 text-sm text-gold-light">
             <p className="font-medium">{importPreview} items ready to import.</p>
             <div className="mt-2 flex gap-2">
               <Button type="button" onClick={confirmImport} loading={importing}>
@@ -253,8 +255,8 @@ export function ProfileClient() {
         ) : null}
 
         {exportOpen ? (
-          <div className="mt-4 grid gap-2 border-t border-warm-border pt-4">
-            <p className="text-xs text-warm-greige/75">Choose what to export:</p>
+          <div className="mt-4 grid gap-2 border-t border-white/[0.06] pt-4">
+            <p className="text-xs text-white/30">Choose what to export:</p>
             <div className="grid gap-2 sm:grid-cols-3">
               <Button type="button" variant="secondary" onClick={handleExportPublic}>
                 <Download className="h-4 w-4" />
@@ -270,7 +272,7 @@ export function ProfileClient() {
               </Button>
             </div>
             {vaultItems.length && !pin ? (
-              <p className="text-xs text-warm-mustard">Unlock the vault to export encrypted items.</p>
+              <p className="text-xs text-gold-light">Unlock the vault to export encrypted items.</p>
             ) : null}
             <Button type="button" variant="ghost" onClick={() => setExportOpen(false)} className="self-start text-xs">
               Cancel
@@ -282,11 +284,11 @@ export function ProfileClient() {
       <section className="panel p-5">
         <div className="flex items-center justify-between">
           <div>
-            <div className="flex items-center gap-2 text-lg font-semibold text-warm-cream">
-              <Bell className="h-5 w-5 text-warm-copper" />
+            <div className="flex items-center gap-2 text-lg font-semibold text-parchment font-display">
+              <Bell className="h-5 w-5 text-blood" />
               Notifications
             </div>
-            <p className="mt-1 text-sm text-warm-greige">
+            <p className="mt-1 text-sm text-white/40">
               {permission === "granted"
                 ? "Push notifications are enabled."
                 : permission === "denied"
@@ -308,12 +310,12 @@ export function ProfileClient() {
       <section className="panel p-5">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
           <div>
-            <div className="flex items-center gap-2 text-lg font-semibold text-warm-cream">
-              <KeyRound className="h-5 w-5 text-warm-copper" />
+            <div className="flex items-center gap-2 text-lg font-semibold text-parchment font-display">
+              <KeyRound className="h-5 w-5 text-blood" />
               Security
             </div>
-            <p className="mt-1 text-sm text-warm-greige">{hasPin ? "Your private vault PIN is configured." : "Create a 4-digit PIN before saving private items."}</p>
-            <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-warm-bg px-3 py-1 text-xs text-warm-greige">
+            <p className="mt-1 text-sm text-white/40">{hasPin ? "Your private vault PIN is configured." : "Create a 4-digit PIN before saving private items."}</p>
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-crimson-800 px-3 py-1 text-xs text-white/40">
               <Lock className="h-3.5 w-3.5" />
               Vault is {unlocked ? "unlocked for this session" : "locked"}
             </div>
@@ -330,7 +332,7 @@ export function ProfileClient() {
           </div>
         </div>
         {hasPin ? (
-          <div className="mt-5 grid gap-3 border-t border-warm-border pt-5 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
+          <div className="mt-5 grid gap-3 border-t border-white/[0.06] pt-5 sm:grid-cols-[1fr_1fr_auto] sm:items-end">
             <label className="space-y-2">
               <span className="field-label">Old PIN</span>
               <input className="input-shell" inputMode="numeric" maxLength={4} type="password" value={oldPin} onChange={(event) => setOldPin(event.target.value.replace(/\D/g, "").slice(0, 4))} />
@@ -342,9 +344,28 @@ export function ProfileClient() {
             <Button type="button" loading={pinChanging} onClick={handleChangePin}>
               Change PIN
             </Button>
-            {pinMessage ? <div className="text-sm text-warm-greige sm:col-span-3">{pinMessage}</div> : null}
+            {pinMessage ? <div className="text-sm text-white/40 sm:col-span-3">{pinMessage}</div> : null}
           </div>
         ) : null}
+      </section>
+
+      <section className="panel p-5">
+        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+          <div>
+            <div className="flex items-center gap-2 text-lg font-semibold text-parchment font-display">
+              <Shield className="h-5 w-5 text-blood" />
+              Recovery
+            </div>
+            <p className="mt-1 text-sm text-white/40">
+              {hasSecurityQuestions
+                ? "2 security questions configured for PIN recovery."
+                : "Set up security questions to enable PIN recovery if you forget your code."}
+            </p>
+          </div>
+          <Button type="button" variant="secondary" onClick={() => setQuestionsOpen(true)}>
+            {hasSecurityQuestions ? "Change Answers" : "Configure"}
+          </Button>
+        </div>
       </section>
 
       <Button type="button" variant="danger" onClick={handleLogout}>
@@ -352,6 +373,12 @@ export function ProfileClient() {
         Log out
       </Button>
       <PinModal open={pinOpen} mode={hasPin ? "verify" : "setup"} onClose={() => setPinOpen(false)} />
+      <SecurityQuestionsModal
+        open={questionsOpen}
+        mode="setup"
+        onSuccess={() => refreshSecurityQuestionsState()}
+        onClose={() => setQuestionsOpen(false)}
+      />
     </div>
     </PageTransition>
   );
@@ -360,8 +387,8 @@ export function ProfileClient() {
 function Stat({ label, value, includeVault, onToggleVault }: { label: string; value: number; includeVault?: boolean; onToggleVault?: (show: boolean) => void }) {
   return (
     <div className="panel p-5">
-      <div className="text-3xl font-semibold text-warm-cream">{value}</div>
-      <div className="mt-1 text-sm text-warm-greige">{label}</div>
+      <div className="text-3xl font-semibold text-parchment">{value}</div>
+      <div className="mt-1 text-sm text-white/40">{label}</div>
       {onToggleVault ? <VaultStatToggle showing={Boolean(includeVault)} onToggle={onToggleVault} /> : null}
     </div>
   );

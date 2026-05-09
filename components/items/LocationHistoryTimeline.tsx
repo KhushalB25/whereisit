@@ -37,7 +37,7 @@ export function LocationHistoryTimeline({ itemId }: LocationHistoryTimelineProps
   if (loading) {
     return (
       <div className="flex items-center justify-center py-6">
-        <Loader2 className="h-5 w-5 animate-spin text-warm-greige/60" />
+        <Loader2 className="h-5 w-5 animate-spin text-white/40" />
       </div>
     );
   }
@@ -46,28 +46,28 @@ export function LocationHistoryTimeline({ itemId }: LocationHistoryTimelineProps
 
   return (
     <section className="space-y-3">
-      <div className="flex items-center gap-2 text-sm font-medium text-warm-greige/75">
+      <div className="flex items-center gap-2 text-sm font-medium text-white/40">
         <History className="h-4 w-4" />
         Location history
       </div>
       <div className="relative pl-6">
-        <div className="absolute left-[11px] top-2 h-[calc(100%-16px)] w-px bg-warm-border" />
+        <div className="absolute left-[11px] top-2 h-[calc(100%-16px)] w-px bg-white/[0.06]" />
         <div className="grid gap-4">
           {entries.map((entry) => {
             const date = timestampToDate(entry.changedAt);
             return (
               <div key={entry.id} className="relative">
-                <div className="absolute -left-[22px] top-1 h-2.5 w-2.5 rounded-full border-2 border-warm-copper bg-warm-bg" />
-                <div className="rounded-xl border border-warm-border bg-warm-bg/60 p-3">
-                  <div className="flex items-center gap-2 text-sm text-warm-cream">
-                    <MapPin className="h-3.5 w-3.5 shrink-0 text-warm-copper" />
+                <div className="absolute -left-[22px] top-1 h-2.5 w-2.5 rounded-full border-2 border-blood bg-crimson-950" />
+                <div className="rounded-xl border border-white/[0.06] bg-crimson-950/60 p-3">
+                  <div className="flex items-center gap-2 text-sm text-parchment">
+                    <MapPin className="h-3.5 w-3.5 shrink-0 text-blood" />
                     <span className="truncate">{entry.newLocation || entry.newRoomCategory || "Unknown"}</span>
                   </div>
                   {entry.oldLocation && entry.oldLocation !== entry.newLocation ? (
-                    <div className="mt-1 text-xs text-warm-greige/60 line-through">{entry.oldLocation}</div>
+                    <div className="mt-1 text-xs text-white/40 line-through">{entry.oldLocation}</div>
                   ) : null}
                   {date ? (
-                    <div className="mt-1 flex items-center gap-1 text-[11px] text-warm-greige/50">
+                    <div className="mt-1 flex items-center gap-1 text-[11px] text-white/40">
                       <Clock className="h-3 w-3" />
                       {format(date, "MMM d, yyyy h:mm a")}
                     </div>

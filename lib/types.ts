@@ -108,3 +108,21 @@ export type UserProfile = {
   email: string;
   createdAt: ApiTimestamp;
 };
+
+export type SecurityQuestionRecord = {
+  questionIndex: number;
+  answerHash: string;
+};
+
+export const SECURITY_QUESTIONS_PRESET = [
+  "What was the name of your first pet?",
+  "What was the name of your elementary school?",
+  "What was your childhood nickname?",
+  "What is your mother's maiden name?",
+  "What city were you born in?",
+  "What was the make and model of your first car?",
+  "What was the name of your first teacher?",
+  "What is the name of your favorite book?",
+  "What was the name of your best childhood friend?",
+  "What is your favorite food?",
+] as const;

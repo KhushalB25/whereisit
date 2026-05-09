@@ -61,29 +61,29 @@ export function ShareManagement({ itemId }: ShareManagementProps) {
   }
 
   if (loading) {
-    return <div className="flex items-center justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-warm-greige/60" /></div>;
+    return <div className="flex items-center justify-center py-4"><Loader2 className="h-5 w-5 animate-spin text-white/40" /></div>;
   }
 
   if (!shares.length) return null;
 
   return (
     <div className="space-y-3">
-      <div className="flex items-center gap-2 text-sm font-medium text-warm-greige/75">
+      <div className="flex items-center gap-2 text-sm font-medium text-white/40">
         <Users className="h-4 w-4" />
         Shared with ({shares.length})
       </div>
       <div className="grid gap-2">
         {shares.map((share) => (
-          <div key={share.id} className="flex items-center justify-between rounded-xl border border-warm-border bg-warm-bg/60 p-3">
+          <div key={share.id} className="flex items-center justify-between rounded-xl border border-white/[0.06] bg-crimson-950/60 p-3">
             <div>
-              <div className="text-sm font-medium text-warm-cream">{share.sharedWithEmail}</div>
-              <div className="mt-0.5 text-xs text-warm-greige/75 capitalize">{share.permission} access</div>
+              <div className="text-sm font-medium text-parchment">{share.sharedWithEmail}</div>
+              <div className="mt-0.5 text-xs text-white/40 capitalize">{share.permission} access</div>
             </div>
             <button
               type="button"
               onClick={() => handleRevoke(share.id)}
               disabled={revoking === share.id}
-              className="rounded-lg p-2 text-warm-rust/60 transition hover:bg-[#24251F] hover:text-warm-rust disabled:opacity-50"
+              className="rounded-lg p-2 text-red-300/60 transition hover:bg-white/[0.04] hover:text-red-300 disabled:opacity-50"
               title="Revoke access"
             >
               {revoking === share.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}

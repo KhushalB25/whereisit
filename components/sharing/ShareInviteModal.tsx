@@ -50,8 +50,8 @@ export function ShareInviteModal({ open, itemId, onClose }: ShareInviteModalProp
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm animate-fade-in" onClick={onClose}>
       <div className="panel w-full max-w-md p-5 animate-scale-in" onClick={(e) => e.stopPropagation()}>
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-warm-cream">Share item</h2>
-          <button type="button" onClick={onClose} className="rounded-lg p-2 text-warm-greige hover:bg-[#24251F] hover:text-warm-cream">
+          <h2 className="text-lg font-semibold text-parchment">Share item</h2>
+          <button type="button" onClick={onClose} className="rounded-lg p-2 text-white/40 hover:bg-white/[0.04] hover:text-parchment">
             <X className="h-5 w-5" />
           </button>
         </div>

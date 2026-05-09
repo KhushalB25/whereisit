@@ -4,18 +4,18 @@ import { AuthProvider } from "@/components/auth/AuthProvider";
 import { ToastProvider } from "@/components/ui/Toast";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://whereisit.com"),
+  metadataBase: new URL("https://everyai.in"),
   title: {
-    default: "WhereIsIt",
-    template: "%s | WhereIsIt"
+    default: "everyai — WhereIsIt",
+    template: "%s | everyai — WhereIsIt"
   },
-  description: "A private home inventory tracker for finding items, expiry dates, and stock levels fast.",
-  applicationName: "WhereIsIt",
+  description: "everyai — A private home inventory tracker for finding items, expiry dates, and stock levels fast.",
+  applicationName: "everyai — WhereIsIt",
   manifest: "/manifest.json"
 };
 
 export const viewport: Viewport = {
-  themeColor: "#111311",
+  themeColor: "#0A0806",
   colorScheme: "dark",
   width: "device-width",
   initialScale: 1
@@ -24,11 +24,36 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
-      <body className="min-h-screen antialiased">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+      </head>
+      <body className="min-h-screen bg-crimson-950 text-parchment antialiased">
+        <div className="crimson-bg">
+          <div className="crimson-grid" />
+          <div className="crimson-particles">
+            <div className="crimson-particle type-red" />
+            <div className="crimson-particle type-gold" />
+            <div className="crimson-particle type-red" />
+            <div className="crimson-particle type-gold" />
+            <div className="crimson-particle type-red" />
+            <div className="crimson-particle type-gold" />
+            <div className="crimson-particle type-red" />
+            <div className="crimson-particle type-gold" />
+            <div className="crimson-particle type-red" />
+            <div className="crimson-particle type-gold" />
+            <div className="crimson-particle type-red" />
+            <div className="crimson-particle type-gold" />
+            <div className="crimson-particle type-red" />
+            <div className="crimson-particle type-gold" />
+            <div className="crimson-particle type-red" />
+          </div>
+        </div>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <div id="main-content">
+        <div id="main-content" className="relative z-10">
           <ToastProvider>
             <AuthProvider>{children}</AuthProvider>
           </ToastProvider>

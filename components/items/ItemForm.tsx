@@ -158,8 +158,8 @@ export function ItemForm({ item, mode = item ? "edit" : "location" }: ItemFormPr
     <>
     <form onSubmit={handleSubmit} className="mx-auto max-w-3xl space-y-5">
       <div>
-        <h1 className="text-2xl font-semibold tracking-tight text-warm-cream">{title}</h1>
-        <p className="mt-1 text-sm text-warm-greige">
+        <h1 className="text-2xl font-semibold tracking-tight text-parchment">{title}</h1>
+        <p className="mt-1 text-sm text-white/40">
           {mode === "expiry"
             ? "Track location, stock, expiry dates, and daily consumption."
             : mode === "wishlist"
@@ -279,10 +279,10 @@ export function ItemForm({ item, mode = item ? "edit" : "location" }: ItemFormPr
           </>
         ) : null}
         {!isWishlistMode ? (
-          <label className="sm:col-span-2 flex items-center justify-between gap-4 rounded-xl border border-warm-border bg-warm-bg/50 p-4">
+          <label className="sm:col-span-2 flex items-center justify-between gap-4 rounded-xl border border-white/[0.06] bg-crimson-950/50 p-4">
             <span>
-              <span className="block text-sm font-medium text-warm-cream">Private Item</span>
-              <span className="mt-1 block text-xs text-warm-greige/75">Encrypt name, location, and notes. Requires your private PIN to view.</span>
+              <span className="block text-sm font-medium text-parchment">Private Item</span>
+              <span className="mt-1 block text-xs text-white/40">Encrypt name, location, and notes. Requires your private PIN to view.</span>
             </span>
             <input
               type="checkbox"
@@ -291,18 +291,18 @@ export function ItemForm({ item, mode = item ? "edit" : "location" }: ItemFormPr
                 updateValue("isPrivate", event.target.checked);
                 if (event.target.checked && !unlocked) setPinOpen(true);
               }}
-              className="h-5 w-5 accent-warm-copper"
+              className="h-5 w-5 accent-blood"
             />
           </label>
         ) : null}
         {!isWishlistMode && values.isPrivate && hasPin === false ? (
-          <div className="sm:col-span-2 rounded-xl border border-warm-mustard/30 bg-warm-mustard/10 p-4 text-sm text-warm-mustard">
+          <div className="sm:col-span-2 rounded-xl border border-gold/30 bg-gold-dim p-4 text-sm text-gold-light">
             Create a private PIN to save encrypted items.
           </div>
         ) : null}
         {!isWishlistMode ? (
         <Field label="Photo" hint="Camera or file picker. Images are resized before upload." className="sm:col-span-2">
-          <label className="group flex cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-warm-border bg-warm-bg/70 p-5 text-center transition hover:border-warm-copper/70">
+          <label className="group flex cursor-pointer flex-col items-center justify-center rounded-xl border border-dashed border-white/[0.06] bg-crimson-950/70 p-5 text-center transition hover:border-blood/70">
             {photoPreview ? (
               <span className="relative mb-4 block h-32 w-full overflow-hidden rounded-xl sm:h-44">
                 <span
@@ -316,9 +316,9 @@ export function ItemForm({ item, mode = item ? "edit" : "location" }: ItemFormPr
                 </span>
               </span>
             ) : (
-              <Camera className="mb-3 h-8 w-8 text-warm-copper" />
+              <Camera className="mb-3 h-8 w-8 text-blood" />
             )}
-            <span className="text-sm font-medium text-warm-cream">{photoPreview ? "Tap to change" : "Choose photo"}</span>
+            <span className="text-sm font-medium text-parchment">{photoPreview ? "Tap to change" : "Choose photo"}</span>
             <input className="sr-only" type="file" accept="image/*" capture="environment" onChange={handlePhoto} />
           </label>
         </Field>

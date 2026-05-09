@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useMemo, useState } from "react";
 import { ItemForm } from "@/components/items/ItemForm";
@@ -25,13 +25,13 @@ export function EditItemClient({ itemId }: { itemId: string }) {
   }, [pin, rawItem]);
 
   if (loading) return <LoadingState label="Loading item" />;
-  if (error) return <div className="panel p-5 text-warm-rust">{error}</div>;
-  if (!item) return <div className="panel p-6 text-sm text-warm-greige">Item not found.</div>;
+  if (error) return <div className="panel p-5 text-blood">{error}</div>;
+  if (!item) return <div className="panel p-6 text-sm text-white/40">Item not found.</div>;
   if (item.isPrivate && !unlocked) {
     return (
       <div className="panel mx-auto max-w-xl p-8 text-center">
-        <h1 className="text-xl font-semibold text-warm-cream">Private item</h1>
-        <p className="mt-2 text-sm text-warm-greige">Unlock your vault before editing this item.</p>
+        <h1 className="text-xl font-semibold text-parchment">Private item</h1>
+        <p className="mt-2 text-sm text-white/40">Unlock your vault before editing this item.</p>
         <Button type="button" className="mt-6" onClick={() => setPinOpen(true)}>
           Unlock
         </Button>

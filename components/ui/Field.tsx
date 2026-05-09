@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+﻿import { cn } from "@/lib/utils";
 
 type FieldProps = {
   label: string;
@@ -12,7 +12,7 @@ export function Field({ label, children, hint, className }: FieldProps) {
     <label className={cn("block space-y-2", className)}>
       <span className="field-label">{label}</span>
       {children}
-      {hint ? <span className="block text-xs text-warm-greige/75">{hint}</span> : null}
+      {hint ? <span className="block text-xs text-white/30">{hint}</span> : null}
     </label>
   );
 }

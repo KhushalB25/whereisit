@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { CheckCircle2, Loader2, Plus, ShoppingCart, Trash2 } from "lucide-react";
@@ -92,19 +92,19 @@ export function ShoppingListClient() {
   }
 
   const itemRow = (item: ShoppingItem) => (
-    <div key={item.id} className="group flex items-center gap-3 rounded-xl border border-warm-border bg-warm-bg/60 p-3 transition hover:border-warm-copper/50">
+    <div key={item.id} className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-crimson-950/60 p-3 transition hover:border-blood/50">
       <div className="min-w-0 flex-1">
-        <div className="font-medium text-warm-cream">{item.name}</div>
-        {item.notes ? <div className="mt-0.5 text-xs text-warm-greige/75">{item.notes}</div> : null}
+        <div className="font-medium text-parchment">{item.name}</div>
+        {item.notes ? <div className="mt-0.5 text-xs text-white/30">{item.notes}</div> : null}
       </div>
-      <span className="shrink-0 rounded-full bg-warm-bg px-2.5 py-1 text-xs text-warm-greige">Qty {item.quantity}</span>
+      <span className="shrink-0 rounded-full bg-crimson-950 px-2.5 py-1 text-xs text-white/40">Qty {item.quantity}</span>
 
       {item.isSuggested ? (
         <button
           type="button"
           onClick={() => handleRestock(item)}
           disabled={completing === item.id}
-          className="rounded-lg p-2 text-warm-sage transition hover:bg-[#24251F] disabled:opacity-50"
+          className="rounded-lg p-2 text-gold-light transition hover:bg-white/[0.04] disabled:opacity-50"
           title="Restock (qty 10)"
         >
           {completing === item.id ? (
@@ -117,7 +117,7 @@ export function ShoppingListClient() {
         <button
           type="button"
           onClick={() => handleRemove(item.id)}
-          className="rounded-lg p-2 text-warm-rust/60 transition hover:bg-[#24251F] hover:text-warm-rust"
+          className="rounded-lg p-2 text-blood/60 transition hover:bg-white/[0.04] hover:text-blood"
           title="Remove"
         >
           <Trash2 className="h-4 w-4" />
@@ -132,12 +132,12 @@ export function ShoppingListClient() {
     <PageTransition>
       <div className="mx-auto max-w-3xl space-y-6">
         <div>
-          <div className="flex items-center gap-2 text-warm-copper">
+          <div className="flex items-center gap-2 text-blood">
             <ShoppingCart className="h-5 w-5" />
             <span className="text-sm font-medium">Shopping List</span>
           </div>
-          <h1 className="mt-2 text-2xl font-semibold tracking-tight text-warm-cream">What to buy</h1>
-          <p className="mt-1 text-sm text-warm-greige">
+          <h1 className="mt-2 text-2xl font-semibold tracking-tight text-parchment">What to buy</h1>
+          <p className="mt-1 text-sm text-white/40">
             Auto-suggested from low-stock items. Add manual items as needed.
           </p>
         </div>
@@ -148,7 +148,7 @@ export function ShoppingListClient() {
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
             onKeyDown={(e) => { if (e.key === "Enter") handleAddManual(); }}
-            placeholder="Add a manual item…"
+            placeholder="Add a manual item..."
           />
           <Button type="button" onClick={handleAddManual} loading={adding} disabled={!newName.trim()}>
             <Plus className="h-4 w-4" />
@@ -158,7 +158,7 @@ export function ShoppingListClient() {
 
         {suggestedItems.length ? (
           <section>
-            <h2 className="mb-3 text-sm font-medium text-warm-sage/80">
+            <h2 className="mb-3 text-sm font-medium text-gold-light/80">
               Suggested from low stock ({suggestedItems.length})
             </h2>
             <div className="grid gap-2">
@@ -180,16 +180,16 @@ export function ShoppingListClient() {
         ) : null}
 
         <section>
-          <h2 className="mb-3 text-sm font-medium text-warm-greige/75">
+          <h2 className="mb-3 text-sm font-medium text-white/30">
             Manual items ({manualItems.length})
           </h2>
           {manualItems.length ? (
             <div className="grid gap-2">{manualItems.map(itemRow)}</div>
           ) : (
             <div className="panel flex flex-col items-center gap-3 p-8 text-center">
-              <ShoppingCart className="h-8 w-8 text-warm-greige/50" />
-              <p className="text-sm font-medium text-warm-cream">No manual items</p>
-              <p className="text-xs text-warm-greige/75">Use the input above to add items you need to buy.</p>
+              <ShoppingCart className="h-8 w-8 text-white/20" />
+              <p className="text-sm font-medium text-parchment">No manual items</p>
+              <p className="text-xs text-white/30">Use the input above to add items you need to buy.</p>
             </div>
           )}
         </section>

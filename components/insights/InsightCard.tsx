@@ -12,12 +12,12 @@ type InsightCardProps = {
 export function InsightCard({ title, icon, children, empty }: InsightCardProps) {
   return (
     <section className="panel p-5">
-      <div className="mb-4 flex items-center gap-2 text-sm font-medium text-warm-greige/75">
+      <div className="mb-4 flex items-center gap-2 text-sm font-medium text-white/40">
         {icon}
         {title}
       </div>
       {children || (empty ? (
-        <p className="text-sm text-warm-greige/60">{empty}</p>
+        <p className="text-sm text-white/40">{empty}</p>
       ) : null)}
     </section>
   );

@@ -1,11 +1,11 @@
 {
-  "name": "WhereIsIt",
+  "name": "everyai — WhereIsIt",
   "short_name": "WhereIsIt",
-  "description": "Private home inventory tracker for instantly finding important items.",
+  "description": "everyai — Private home inventory tracker for instantly finding important items.",
   "start_url": "/dashboard",
   "display": "standalone",
-  "background_color": "#111311",
-  "theme_color": "#111311",
+  "background_color": "#0A0806",
+  "theme_color": "#0A0806",
   "icons": [
     {
       "src": "/icon.svg",

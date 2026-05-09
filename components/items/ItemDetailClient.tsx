@@ -107,16 +107,16 @@ export function ItemDetailClient({ itemId }: { itemId: string }) {
   }
 
   if (loading) return <LoadingState label="Loading item" />;
-  if (error) return <div className="panel p-5 text-warm-rust">{error}</div>;
-  if (!item) return <div className="panel p-6 text-sm text-warm-greige">Item not found.</div>;
+  if (error) return <div className="panel p-5 text-red-300">{error}</div>;
+  if (!item) return <div className="panel p-6 text-sm text-white/40">Item not found.</div>;
 
   if (item.isPrivate && !unlocked) {
     return (
       <div className="mx-auto max-w-xl">
         <div className="panel p-8 text-center">
-          <Lock className="mx-auto mb-4 h-10 w-10 text-warm-copper" />
-          <h1 className="text-xl font-semibold text-warm-cream">Private item</h1>
-          <p className="mt-2 text-sm text-warm-greige">Enter your PIN to decrypt and view this item.</p>
+          <Lock className="mx-auto mb-4 h-10 w-10 text-blood" />
+          <h1 className="text-xl font-semibold text-parchment">Private item</h1>
+          <p className="mt-2 text-sm text-white/40">Enter your PIN to decrypt and view this item.</p>
           <Button type="button" className="mt-6" onClick={() => setPinOpen(true)}>
             Unlock
           </Button>
@@ -135,21 +135,21 @@ export function ItemDetailClient({ itemId }: { itemId: string }) {
     <div className="mx-auto max-w-5xl space-y-6">
       <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-start">
         <div>
-          <div className="flex items-center gap-2 text-sm text-warm-copper">
+          <div className="flex items-center gap-2 text-sm text-blood">
             <Package className="h-4 w-4" />
             {item.status === "finished" ? "Finished item" : "Inventory item"}
           </div>
-          <h1 className="mt-2 flex items-center gap-2 text-3xl font-semibold tracking-tight text-warm-cream">
-            {item.isPrivate ? <Lock className="h-6 w-6 text-warm-copper" /> : null}
+          <h1 className="mt-2 flex items-center gap-2 text-3xl font-semibold tracking-tight text-parchment">
+            {item.isPrivate ? <Lock className="h-6 w-6 text-blood" /> : null}
             {item.name}
           </h1>
-          <p className="mt-2 flex gap-2 text-warm-cream/85">
-            <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-warm-copper" />
+          <p className="mt-2 flex gap-2 text-parchment/85">
+            <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-blood" />
             <span>{item.location}</span>
           </p>
-          <div className="mt-3 flex flex-wrap gap-2 text-xs text-warm-greige">
-            <span className="rounded-full bg-warm-card px-2.5 py-1">{item.roomCategory}</span>
-            <span className="rounded-full bg-warm-card px-2.5 py-1">{item.category}</span>
+          <div className="mt-3 flex flex-wrap gap-2 text-xs text-white/40">
+            <span className="rounded-full bg-crimson-900 px-2.5 py-1">{item.roomCategory}</span>
+            <span className="rounded-full bg-crimson-900 px-2.5 py-1">{item.category}</span>
           </div>
         </div>
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
@@ -161,7 +161,7 @@ export function ItemDetailClient({ itemId }: { itemId: string }) {
           ) : null}
           <Link
             href={`/items/${item.id}/edit`}
-            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-warm-border bg-[#24251F] px-3 py-2 text-sm font-semibold text-warm-cream transition hover:bg-warm-border sm:gap-2 sm:px-4"
+            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-white/[0.06] bg-white/[0.04] px-3 py-2 text-sm font-semibold text-parchment transition hover:bg-white/[0.06] sm:gap-2 sm:px-4"
           >
             <Edit3 className="h-4 w-4" />
             <span className="hidden sm:inline">Edit</span>
@@ -244,11 +244,11 @@ export function ItemDetailClient({ itemId }: { itemId: string }) {
         <div className="space-y-6">
           <div className="panel overflow-hidden">
             {item.photoURL ? (
-              <button type="button" onClick={() => setLightbox(true)} className="relative block h-48 w-full bg-warm-bg text-left sm:h-64 lg:h-80">
+              <button type="button" onClick={() => setLightbox(true)} className="relative block h-48 w-full bg-crimson-950 text-left sm:h-64 lg:h-80">
                 <Image src={item.photoURL} alt={item.name || "Private item"} fill sizes="(max-width: 1024px) 100vw, 760px" className="object-cover" priority />
               </button>
             ) : (
-              <div className="flex h-64 flex-col items-center justify-center gap-3 text-warm-greige/50">
+              <div className="flex h-64 flex-col items-center justify-center gap-3 text-white/40">
                 <ImageIcon className="h-12 w-12" />
                 <span className="text-sm">No photo saved</span>
               </div>
@@ -256,26 +256,26 @@ export function ItemDetailClient({ itemId }: { itemId: string }) {
           </div>
 
           <div className="panel p-5">
-            <h2 className="font-semibold text-warm-cream">Notes</h2>
-            <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-warm-cream/85">{item.notes || "No notes yet."}</p>
+            <h2 className="font-semibold text-parchment">Notes</h2>
+            <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-parchment/85">{item.notes || "No notes yet."}</p>
           </div>
 
           <section>
-            <div className="mb-3 flex items-center gap-2 text-warm-cream">
-              <History className="h-5 w-5 text-warm-copper" />
+            <div className="mb-3 flex items-center gap-2 text-parchment">
+              <History className="h-5 w-5 text-blood" />
               <h2 className="font-semibold">Consumption history</h2>
             </div>
             {logs.length ? (
-              <div className="panel divide-y divide-warm-border">
+              <div className="panel divide-y divide-white/[0.06]">
                 {logs.map((log) => (
                   <div key={log.id} className="flex items-center justify-between gap-3 p-4 text-sm">
-                    <span className="text-warm-cream/85">{log.date}</span>
-                    <span className="font-medium text-warm-cream">-{log.quantityConsumed}</span>
+                    <span className="text-parchment/85">{log.date}</span>
+                    <span className="font-medium text-parchment">-{log.quantityConsumed}</span>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="panel p-5 text-sm text-warm-greige/75">No consumption logged yet.</div>
+              <div className="panel p-5 text-sm text-white/40">No consumption logged yet.</div>
             )}
           </section>
         </div>
@@ -288,13 +288,13 @@ export function ItemDetailClient({ itemId }: { itemId: string }) {
 
           {item.dailyConsumptionRate > 0 ? (
             <div className="panel p-5">
-              <div className="text-sm text-warm-greige">Stock estimate</div>
-              <div className="mt-2 text-2xl font-semibold text-warm-cream">{remaining} days remaining</div>
-              <p className="mt-2 text-sm text-warm-greige">
+              <div className="text-sm text-white/40">Stock estimate</div>
+              <div className="mt-2 text-2xl font-semibold text-parchment">{remaining} days remaining</div>
+              <p className="mt-2 text-sm text-white/40">
                 Based on {item.dailyConsumptionRate} consumed every {interval} day{interval > 1 ? "s" : ""}, stock will last about {remaining} more uses.
               </p>
-              <div className="mt-4 h-2 overflow-hidden rounded-full bg-[#24251F]">
-                <div className="h-full rounded-full bg-warm-copper" style={{ width: `${consumeProgress}%` }} />
+              <div className="mt-4 h-2 overflow-hidden rounded-full bg-white/[0.04]">
+                <div className="h-full rounded-full bg-gradient-blood" style={{ width: `${consumeProgress}%` }} />
               </div>
             </div>
           ) : null}
@@ -316,8 +316,8 @@ export function ItemDetailClient({ itemId }: { itemId: string }) {
 function InfoPanel({ label, value }: { label: string; value: string }) {
   return (
     <div className="panel p-5">
-      <div className="text-sm text-warm-greige/75">{label}</div>
-      <div className="mt-1 text-lg font-semibold text-warm-cream">{value}</div>
+      <div className="text-sm text-white/40">{label}</div>
+      <div className="mt-1 text-lg font-semibold text-parchment">{value}</div>
     </div>
   );
 }

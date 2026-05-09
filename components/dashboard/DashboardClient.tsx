@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { Children, useEffect, useMemo, useState } from "react";
@@ -20,7 +20,7 @@ import { consumeItem } from "@/lib/items";
 import { getExpiryState, timestampToDate } from "@/lib/utils";
 import type { InventoryItem } from "@/lib/types";
 
-/** Number of sections in the dashboard — used for stagger indices */
+/** Number of sections in the dashboard - used for stagger indices */
 const SECTIONS = {
   HEADER: 0,
   SUMMARY: 1,
@@ -56,7 +56,7 @@ export function DashboardClient() {
     return state.days !== null && state.days <= 7;
   });
   const lowQuantity = [...active, ...finished.filter((item) => parseFloat(String(item.quantity)) > 0)].filter((item) => {
-    // Location-only items aren't stock-managed — skip them
+    // Location-only items aren't stock-managed - skip them
     if (item.dailyConsumptionRate <= 0) return false;
     const qty = parseFloat(String(item.quantity));
     // Dynamically compute: flag when less than 2 servings + 1 spare unit remain
@@ -75,7 +75,7 @@ export function DashboardClient() {
     .sort((a, b) => (b.lastInteractedAt?.millis ?? b.updatedAt?.millis ?? 0) - (a.lastInteractedAt?.millis ?? a.updatedAt?.millis ?? 0))
     .slice(0, 5);
 
-  // Refresh data when dashboard mounts so newly‑added items aren't served stale cache
+  // Refresh data when dashboard mounts so newly-added items aren't served stale cache
   useEffect(() => {
     if (user) refresh();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -100,24 +100,24 @@ export function DashboardClient() {
   }, [items]);
 
   if (loading) return <LoadingState label="Loading inventory" variant="skeleton" />;
-  if (error) return <div className="panel p-5 text-warm-rust">{error}</div>;
+  if (error) return <div className="panel p-5 text-blood">{error}</div>;
   if (!items.length) return <EmptyState />;
 
   return (
     <PageTransition>
     <div className="space-y-6">
-      {/* ── Header ── */}
+      {/* â”€â”€ Header â”€â”€ */}
       <StaggerSection index={SECTIONS.HEADER}>
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-warm-cream">Dashboard</h1>
-            <p className="mt-1 text-sm text-warm-greige">Everything important, sorted newest first.</p>
+            <h1 className="text-2xl font-semibold tracking-tight text-parchment">Dashboard</h1>
+            <p className="mt-1 text-sm text-white/40">Everything important, sorted newest first.</p>
           </div>
           <AddItemSheet />
         </div>
       </StaggerSection>
 
-      {/* ── Summary cards ── */}
+      {/* â”€â”€ Summary cards â”€â”€ */}
       <StaggerSection index={SECTIONS.SUMMARY}>
         <section className="grid gap-4 md:grid-cols-3">
           <StaggerSection index={0}>
@@ -132,20 +132,20 @@ export function DashboardClient() {
         </section>
       </StaggerSection>
 
-      {/* ── Consumption reminders ── */}
+      {/* â”€â”€ Consumption reminders â”€â”€ */}
       {consumptionDue.length ? (
         <StaggerSection index={SECTIONS.REMINDERS}>
-          <section className="panel border-warm-mustard/30 bg-warm-mustard/10 p-5">
-            <div className="mb-4 flex items-center gap-2 text-warm-mustard">
+          <section className="panel border-gold/30 bg-gold-dim p-5">
+            <div className="mb-4 flex items-center gap-2 text-gold-light">
               <Utensils className="h-5 w-5" />
               <h2 className="font-semibold">Consumption reminders</h2>
             </div>
             <div className="grid gap-3">
               {consumptionDue.slice(0, 4).map((item) => (
-                <div key={item.id} className="flex flex-col justify-between gap-3 rounded-xl border border-warm-mustard/20 bg-warm-bg/60 p-4 transition-all duration-150 active:scale-[0.99] sm:flex-row sm:items-center">
+                <div key={item.id} className="flex flex-col justify-between gap-3 rounded-xl border border-gold/20 bg-crimson-950/60 p-4 transition-all duration-150 active:scale-[0.99] sm:flex-row sm:items-center">
                   <div>
-                    <div className="font-semibold text-warm-cream">{item.name || "Private item"}</div>
-                    <div className="mt-1 text-sm text-warm-mustard/80">
+                    <div className="font-semibold text-parchment">{item.name || "Private item"}</div>
+                    <div className="mt-1 text-sm text-gold-light/80">
                       Due now. Rate: {item.dailyConsumptionRate} every {item.consumptionIntervalDays} day{item.consumptionIntervalDays > 1 ? "s" : ""}.
                     </div>
                   </div>
@@ -167,7 +167,7 @@ export function DashboardClient() {
         </StaggerSection>
       ) : null}
 
-      {/* ── Two-column layout ── */}
+      {/* â”€â”€ Two-column layout â”€â”€ */}
       <section className="grid gap-6 lg:grid-cols-[1fr_22rem]">
         <div className="space-y-6">
           <StaggerSection index={SECTIONS.EXPIRY_TRACKERS}>
@@ -258,10 +258,10 @@ function SummaryCard({
   return (
     <div className="panel p-5 transition-all duration-200 hover:shadow-[0_0_0_1px_rgba(216,162,94,0.12),0_8px_30px_rgba(0,0,0,0.3)]">
       <div className="flex items-center justify-between gap-3">
-        <span className={tone === "orange" ? "text-warm-mustard" : tone === "indigo" ? "text-warm-copper" : "text-warm-greige"}>{icon}</span>
-        <span className="text-3xl font-semibold text-warm-cream">{value}</span>
+        <span className={tone === "orange" ? "text-gold-light" : tone === "indigo" ? "text-blood" : "text-white/40"}>{icon}</span>
+        <span className="text-3xl font-semibold text-parchment">{value}</span>
       </div>
-      <div className="mt-3 text-sm text-warm-greige">{label}</div>
+      <div className="mt-3 text-sm text-white/40">{label}</div>
       {onToggleVault ? <VaultStatToggle showing={Boolean(includeVault)} onToggle={onToggleVault} /> : null}
     </div>
   );
@@ -271,11 +271,11 @@ function DashboardSection({ title, icon, children, empty }: { title: string; ico
   const hasChildren = Children.count(children) > 0;
   return (
     <section>
-      <div className="mb-3 flex items-center gap-2 border-b border-warm-border/50 pb-2 text-warm-cream">
-        <span className="text-warm-copper">{icon}</span>
+      <div className="mb-3 flex items-center gap-2 border-b border-white/[0.06]/50 pb-2 text-parchment">
+        <span className="text-blood">{icon}</span>
         <h2 className="font-semibold">{title}</h2>
       </div>
-      {hasChildren ? children : empty ? <div className="panel p-5 text-sm text-warm-greige/75">{empty}</div> : null}
+      {hasChildren ? children : empty ? <div className="panel p-5 text-sm text-white/30">{empty}</div> : null}
     </section>
   );
 }
@@ -284,10 +284,10 @@ function MiniItem({ href, title, detail, isRecentlyUpdated }: { href: string; ti
   return (
     <Link
       href={href}
-      className={`panel mb-2 block p-4 transition-all duration-250 hover:scale-[1.01] hover:border-warm-copper/50 hover:shadow-glow active:scale-[0.99] ${isRecentlyUpdated ? "animate-highlight-pulse" : ""}`}
+      className={`panel mb-2 block p-4 transition-all duration-250 hover:scale-[1.01] hover:border-blood/50 hover:shadow-glow active:scale-[0.99] ${isRecentlyUpdated ? "animate-highlight-pulse" : ""}`}
     >
-      <div className="font-medium text-warm-cream">{title}</div>
-      <div className="mt-1 text-sm text-warm-greige">{detail}</div>
+      <div className="font-medium text-parchment">{title}</div>
+      <div className="mt-1 text-sm text-white/40">{detail}</div>
     </Link>
   );
 }
