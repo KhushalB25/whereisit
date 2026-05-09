@@ -2,8 +2,8 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { Loader2, PackageSearch } from "lucide-react";
 import { useAuth } from "@/components/auth/AuthProvider";
+import { Logo } from "@/components/ui/Logo";
 
 export function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -18,13 +18,14 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
   if (loading || !user) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-warm-bg px-6 text-center">
-        <div>
-          <PackageSearch className="mx-auto mb-5 h-12 w-12 text-warm-copper" />
-          <div className="flex items-center justify-center gap-2 text-warm-cream/85">
-            <Loader2 className="h-4 w-4 animate-spin" />
-            Securing your inventory
-          </div>
+      <div className="relative flex min-h-screen items-center justify-center bg-crimson-950 px-6 text-center">
+        <div className="crimson-bg">
+          <div className="crimson-grid" />
+        </div>
+        <div className="relative z-10">
+          <Logo className="mx-auto mb-6 h-10 w-auto" />
+          <div className="spinner-neural mx-auto" />
+          <p className="mt-4 text-sm text-white/40">Securing your inventory</p>
         </div>
       </div>
     );

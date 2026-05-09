@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo } from "react";
 import { cn } from "@/lib/utils";
@@ -32,11 +32,11 @@ export function FilterBar({ items, active, onChange }: FilterBarProps) {
   }, [items]);
 
   const filters: { key: FilterKey; label: string; count: number; color: string }[] = [
-    { key: "all", label: "All", count: counts.all, color: "text-warm-cream" },
-    { key: "expiring", label: "Expiring soon", count: counts.expiring, color: "text-warm-mustard" },
-    { key: "expired", label: "Expired", count: counts.expired, color: "text-warm-rust" },
-    { key: "low", label: "Low stock", count: counts.low, color: "text-warm-copper" },
-    { key: "finished", label: "Finished", count: counts.finished, color: "text-warm-greige" }
+    { key: "all", label: "All", count: counts.all, color: "text-parchment" },
+    { key: "expiring", label: "Expiring soon", count: counts.expiring, color: "text-gold-light" },
+    { key: "expired", label: "Expired", count: counts.expired, color: "text-blood" },
+    { key: "low", label: "Low stock", count: counts.low, color: "text-blood" },
+    { key: "finished", label: "Finished", count: counts.finished, color: "text-white/40" }
   ];
 
   return (
@@ -51,8 +51,8 @@ export function FilterBar({ items, active, onChange }: FilterBarProps) {
           className={cn(
             "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-medium transition-all duration-150",
             active === filter.key
-              ? "border-warm-copper/60 bg-warm-copper/15 text-warm-copper"
-              : "border-warm-border bg-transparent text-warm-greige hover:border-warm-copper/40 hover:text-warm-cream"
+              ? "border-blood/60 bg-blood-muted text-blood"
+              : "border-white/[0.06] bg-transparent text-white/40 hover:border-blood/40 hover:text-parchment"
           )}
         >
           {filter.label}

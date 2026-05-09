@@ -1,4 +1,4 @@
-import { Loader2 } from "lucide-react";
+﻿import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type LoadingStateProps = {
@@ -21,7 +21,7 @@ export function LoadingState({ label = "Loading", variant = "spinner" }: Loading
   }
 
   return (
-    <div className={cn("panel flex min-h-48 items-center justify-center gap-2 text-warm-greige")}>
+    <div className={cn("panel flex min-h-48 items-center justify-center gap-2 text-white/40")}>
       <Loader2 className="h-4 w-4 animate-spin" />
       {label}
     </div>

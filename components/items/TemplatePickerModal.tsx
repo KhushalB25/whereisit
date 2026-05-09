@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Search, X } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -37,19 +37,20 @@ export function TemplatePickerModal({ open, onSelect, onClose }: TemplatePickerM
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm" onClick={onClose}>
       <div className="panel flex max-h-[80vh] w-full max-w-xl flex-col p-5 sm:p-6" onClick={(event) => event.stopPropagation()}>
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-warm-cream">Choose a template</h2>
-          <button type="button" onClick={onClose} className="rounded-lg p-2 text-warm-greige transition hover:bg-[#24251F] hover:text-warm-cream">
+          <h2 className="text-lg font-semibold text-parchment">Choose a template</h2>
+          <button type="button" onClick={onClose} className="rounded-lg p-2 text-white/40 transition hover:bg-white/[0.04] hover:text-parchment">
             <X className="h-5 w-5" />
           </button>
         </div>
 
         <div className="relative mb-3">
-          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-warm-greige/75" />
+          <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/30" />
           <input
             className="input-shell h-10 pl-10 text-sm"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search templates..."
+            aria-label="Search templates"
             autoFocus
           />
         </div>
@@ -63,8 +64,8 @@ export function TemplatePickerModal({ open, onSelect, onClose }: TemplatePickerM
               className={cn(
                 "rounded-full border px-3 py-1 text-xs font-medium transition",
                 activeCategory === cat
-                  ? "border-warm-copper/60 bg-warm-copper/15 text-warm-copper"
-                  : "border-warm-border text-warm-greige hover:border-warm-copper/40 hover:text-warm-cream"
+                  ? "border-blood/60 bg-blood-muted text-blood"
+                  : "border-white/[0.06] text-white/40 hover:border-blood/40 hover:text-parchment"
               )}
             >
               {cat}
@@ -82,13 +83,13 @@ export function TemplatePickerModal({ open, onSelect, onClose }: TemplatePickerM
                   onSelect(template);
                   onClose();
                 }}
-                className="group flex items-center gap-3 rounded-xl border border-warm-border bg-warm-bg/60 p-3 text-left transition hover:border-warm-copper/50 hover:bg-[#24251F]/80"
+                className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-crimson-950/60 p-3 text-left transition hover:border-blood/50 hover:bg-white/[0.04]/80"
               >
                 <div className="min-w-0 flex-1">
-                  <div className="font-medium text-warm-cream group-hover:text-warm-copper transition-colors">
+                  <div className="font-medium text-parchment group-hover:text-blood transition-colors">
                     {template.name}
                   </div>
-                  <div className="mt-0.5 flex flex-wrap gap-2 text-xs text-warm-greige">
+                  <div className="mt-0.5 flex flex-wrap gap-2 text-xs text-white/40">
                     <span>{template.category}</span>
                     <span>{template.roomCategory}</span>
                     {template.expiryDays ? <span>Expires ~{template.expiryDays}d</span> : null}
@@ -97,11 +98,11 @@ export function TemplatePickerModal({ open, onSelect, onClose }: TemplatePickerM
                     ) : null}
                   </div>
                 </div>
-                <span className="shrink-0 text-xs text-warm-greige">Qty {template.quantity}</span>
+                <span className="shrink-0 text-xs text-white/40">Qty {template.quantity}</span>
               </button>
             ))
           ) : (
-            <div className="py-8 text-center text-sm text-warm-greige/75">No templates match your search.</div>
+            <div className="py-8 text-center text-sm text-white/30">No templates match your search.</div>
           )}
         </div>
       </div>

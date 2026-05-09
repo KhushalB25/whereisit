@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useMemo, useState } from "react";
 import { Bath, Bed, BedDouble, CookingPot, Fuel, Home, LucideIcon, Shrub, Sofa, Tent, Warehouse } from "lucide-react";
@@ -42,18 +42,18 @@ export function HomeMapClient() {
   }, [grouped]);
 
   if (loading) return <LoadingState label="Loading map" variant="skeleton" />;
-  if (error) return <div className="panel p-5 text-warm-rust">{error}</div>;
+  if (error) return <div className="panel p-5 text-blood">{error}</div>;
 
   return (
     <PageTransition>
       <div className="mx-auto max-w-3xl space-y-6">
         <div>
-          <div className="flex items-center gap-2 text-warm-copper">
+          <div className="flex items-center gap-2 text-blood">
             <Home className="h-5 w-5" />
             <span className="text-sm font-medium">Home Map</span>
           </div>
-          <h1 className="mt-2 text-2xl font-semibold tracking-tight text-warm-cream">Browse by room</h1>
-          <p className="mt-1 text-sm text-warm-greige">
+          <h1 className="mt-2 text-2xl font-semibold tracking-tight text-parchment">Browse by room</h1>
+          <p className="mt-1 text-sm text-white/40">
             All your inventoried items, grouped by where they live.
           </p>
         </div>
@@ -75,9 +75,9 @@ export function HomeMapClient() {
           </div>
         ) : (
           <div className="panel flex flex-col items-center gap-3 p-8 text-center">
-            <Home className="h-8 w-8 text-warm-greige/50" />
-            <p className="text-sm font-medium text-warm-cream">No items yet</p>
-            <p className="text-xs text-warm-greige/75">Add some items to see them grouped by room.</p>
+            <Home className="h-8 w-8 text-white/20" />
+            <p className="text-sm font-medium text-parchment">No items yet</p>
+            <p className="text-xs text-white/30">Add some items to see them grouped by room.</p>
           </div>
         )}
       </div>

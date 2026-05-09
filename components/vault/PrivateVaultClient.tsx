@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Lock, Search } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -25,16 +25,16 @@ export function PrivateVaultClient() {
   }, [displayPrivateItems, query, unlocked]);
 
   if (loading) return <LoadingState label="Loading private vault" variant="skeleton" />;
-  if (error) return <div className="panel p-5 text-warm-rust">{error}</div>;
+  if (error) return <div className="panel p-5 text-blood">{error}</div>;
 
   if (hasPin && !unlocked) {
     return (
       <PageTransition>
       <div className="mx-auto max-w-xl">
         <div className="panel p-8 text-center">
-          <Lock className="mx-auto mb-4 h-10 w-10 text-warm-copper" />
-          <h1 className="text-xl font-semibold text-warm-cream">Private Vault</h1>
-          <p className="mt-2 text-sm text-warm-greige">Enter your PIN before viewing private items.</p>
+          <Lock className="mx-auto mb-4 h-10 w-10 text-blood" />
+          <h1 className="text-xl font-semibold text-parchment">Private Vault</h1>
+          <p className="mt-2 text-sm text-white/40">Enter your PIN before viewing private items.</p>
           <Button type="button" className="mt-6" onClick={() => setPinOpen(true)}>
             Unlock Vault
           </Button>
@@ -50,12 +50,12 @@ export function PrivateVaultClient() {
     <div className="space-y-6">
       <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
-          <div className="flex items-center gap-2 text-warm-copper">
+          <div className="flex items-center gap-2 text-blood">
             <Lock className="h-5 w-5" />
             <span className="text-sm font-medium">Private Vault</span>
           </div>
-          <h1 className="mt-2 text-2xl font-semibold tracking-tight text-warm-cream">Private items</h1>
-          <p className="mt-1 text-sm text-warm-greige">Encrypted item names, locations, and notes unlock only with your PIN.</p>
+          <h1 className="mt-2 text-2xl font-semibold tracking-tight text-parchment">Private items</h1>
+          <p className="mt-1 text-sm text-white/40">Encrypted item names, locations, and notes unlock only with your PIN.</p>
         </div>
         {unlocked ? (
           <Button type="button" variant="secondary" onClick={lock}>
@@ -70,15 +70,15 @@ export function PrivateVaultClient() {
 
       {!hasPin ? (
         <div className="panel p-6">
-          <h2 className="font-semibold text-warm-cream">Create a PIN first</h2>
-          <p className="mt-2 text-sm text-warm-greige">Set a 4-digit PIN in Profile → Security before saving private items.</p>
+          <h2 className="font-semibold text-parchment">Create a PIN first</h2>
+          <p className="mt-2 text-sm text-white/40">Set a 4-digit PIN in Profile â†’ Security before saving private items.</p>
         </div>
       ) : null}
 
       {unlocked ? (
         <div className="relative">
-          <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-warm-greige/75" />
-          <input className="input-shell pl-12" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search private items..." />
+          <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/30" />
+          <input className="input-shell pl-12" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search private items..." aria-label="Search private items" />
         </div>
       ) : null}
 
@@ -86,7 +86,7 @@ export function PrivateVaultClient() {
         {filtered.length ? (
           filtered.map((item) => <ItemCard key={item.id} item={item} locked={item.isPrivate && !unlocked} />)
         ) : (
-          <div className="panel p-6 text-sm text-warm-greige">No private items yet.</div>
+          <div className="panel p-6 text-sm text-white/40">No private items yet.</div>
         )}
       </div>
 
